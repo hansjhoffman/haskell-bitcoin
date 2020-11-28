@@ -2,12 +2,17 @@
 
 module Main where
 
-import Network.HTTP.Simple (httpBS, getResponseBody)
-import qualified Data.ByteString.Char8 as BS
-import Data.Aeson.Lens (key, _String)
-import Data.Text (Text)
-import Control.Lens (preview)
-import qualified Data.Text.IO as TIO
+import           Network.HTTP.Simple            ( httpBS
+                                                , getResponseBody
+                                                )
+import qualified Data.ByteString.Char8         as BS
+import           Data.Aeson.Lens                ( key
+                                                , _String
+                                                )
+import           Data.Text                      ( Text )
+import           Control.Lens                   ( preview )
+import qualified Data.Text.IO                  as TIO
+
 
 -- {
 --   "time": {
@@ -58,6 +63,5 @@ main = do
   json <- fetchJSON
 
   case getRate json of
-    Nothing -> TIO.putStrLn "Could not find the Bitcoin rate :("
+    Nothing   -> TIO.putStrLn "Could not find the Bitcoin rate :("
     Just rate -> TIO.putStrLn $ "The current Bitcoin rate is $" <> rate
-    
