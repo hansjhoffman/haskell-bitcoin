@@ -55,7 +55,7 @@ fetchJSON = do
 
 
 getRate :: BS.ByteString -> Maybe Text
-getRate json = preview (key "bpi" . key "USD" . key "rate" . _String) json
+getRate = preview (key "bpi" . key "USD" . key "rate" . _String)
 
 
 main :: IO ()
