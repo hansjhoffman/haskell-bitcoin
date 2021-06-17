@@ -63,5 +63,5 @@ main = do
   json <- fetchJSON
 
   case getRate json of
-    Nothing   -> TIO.putStrLn "Could not find the Bitcoin rate :("
+    Nothing   -> TIO.putStrLn "Oops! Could not find the Bitcoin rate :("
     Just rate -> TIO.putStrLn $ "The current Bitcoin rate is $" <> rate
