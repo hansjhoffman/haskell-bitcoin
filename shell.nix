@@ -16,8 +16,10 @@ let
   ghc = haskell.packages.ghc8104.ghcWithPackages haskellDeps;
 
   inputs = [
+    gcc
     ghc
     stack
+    llvm
   ];
 in
   stdenv.mkDerivation {
